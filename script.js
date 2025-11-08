@@ -13,7 +13,6 @@ const quizData = [
   }
 ];
 
-// Load the quiz onto the page
 function loadQuiz() {
   const quizContainer = document.getElementById('quiz-container');
   quizData.forEach((q, index) => {
@@ -33,30 +32,25 @@ function loadQuiz() {
   });
 }
 
-// Check answers and show explanations
 function submitQuiz() {
-  quizData.forEach((q, index) => {
-    const selected = document.querySelector(`input[name="q${index}"]:checked`);
-    const explanation = document.getElementsByClassName('explanation')[index];
+  const questionBlocks = document.querySelectorAll('.question-block');
+  
+  questionBlocks.forEach((block, index) => {
+    const selected = block.querySelector(`input[name="q${index}"]:checked`);
+    const explanation = block.querySelector('.explanation');
 
     if (selected) {
-      if (selected.value === q.correct) {
-        explanation.style.color = "green";
-      } else {
-        explanation.style.color = "red";
-      }
+      explanation.style.color = selected.value === quizData[index].correct ? "green" : "red";
     } else {
       explanation.style.color = "orange"; // No answer selected
     }
 
-    explanation.style.display = "block"; // Show explanation
+    explanation.style.display = "block";
   });
 }
 
-// Initialize quiz and button event
 window.onload = function() {
     loadQuiz();
-
     const submitBtn = document.getElementById('submit-btn');
     submitBtn.addEventListener('click', submitQuiz);
 };
