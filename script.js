@@ -57,3 +57,9 @@ function submitQuiz() {
 
 // Initialize quiz on page load
 window.onload = loadQuiz;
+window.onload = function() {
+    loadQuiz();
+
+    const submitBtn = document.getElementById('submit-btn');
+    submitBtn.addEventListener('click', submitQuiz);
+};
