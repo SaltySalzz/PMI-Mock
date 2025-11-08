@@ -382,12 +382,20 @@ function loadQuiz() {
   });
 }
 
-// Function to show explanations
 function submitQuiz() {
   quizData.forEach((q, index) => {
+    // Show the explanation
     const explanation = document.getElementsByClassName('explanation')[index];
     explanation.style.display = 'block';
+
+    // Check the selected answer
+    const selected = document.querySelector(`input[name="q${index}"]:checked`);
+    if (selected) {
+      if (selected.value === q.correct) {
+        selected.parentElement.style.color = 'green'; // correct answer
+      } else {
+        selected.parentElement.style.color = 'red'; // wrong answer
+      }
+    }
   });
 }
-
-document.addEventListener('DOMContentLoaded', loadQuiz);
