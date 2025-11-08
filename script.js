@@ -364,7 +364,7 @@ const quizData = [
 
 // Function to display quiz questions, options, and handle answers
 function loadQuiz() {
-  const quizContainer = document.getElementById('quiz');
+  const quizContainer = document.getElementById('quiz-container');
   quizData.forEach((q, index) => {
     const div = document.createElement('div');
     div.classList.add('question-block');
