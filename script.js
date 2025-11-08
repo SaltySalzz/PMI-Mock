@@ -1,5 +1,4 @@
 const quizData = [
-  // Example questions (shortened for brevity)
   {
     question: "Q1: A team member is not meeting deadlines consistently. What is the best approach?",
     options: { a: "Reassign tasks to someone else", b: "Discuss privately and coach them", c: "Warn them in front of the team", d: "Ignore the issue" },
@@ -12,7 +11,6 @@ const quizData = [
     correct: "b",
     explanation: "Facilitating discussion helps resolve conflicts collaboratively."
   }
-  // Add all other questions here
 ];
 
 // Load the quiz onto the page
@@ -55,8 +53,7 @@ function submitQuiz() {
   });
 }
 
-// Initialize quiz on page load
-window.onload = loadQuiz;
+// Initialize quiz and button event
 window.onload = function() {
     loadQuiz();
 
